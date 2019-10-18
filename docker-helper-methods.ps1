@@ -11,11 +11,11 @@ function dockerstop {
   $containers = docker ps -aq
   if(-not ([string]::IsNullOrEmpty($containers)))
   {
-    Write-Host "`n#>"-ForegroundColor Red -NoNewline; Write-Host "Docker containers:`n" 
+    Write-Host "`n#> "-ForegroundColor Red -NoNewline; Write-Host "Docker containers:`n" 
     docker ps -a --format "table {{.ID}}\t{{.Image}}\t{{.Names}}"
-    Write-Host "`n>>" -ForegroundColor Red -NoNewline; Write-Host "Docker stop started ...`n" 
+    Write-Host "`n>> " -ForegroundColor Red -NoNewline; Write-Host "Docker stop started ...`n" 
     docker stop $containers
-    Write-Host "`n<<" -ForegroundColor Red -NoNewline; Write-Host "Docker stop done.`n"
+    Write-Host "`n<< " -ForegroundColor Red -NoNewline; Write-Host "Docker stop done.`n"
   } Else {
     Write-Host "There is not any containers ..." -ForegroundColor DarkGreen
   }
@@ -29,11 +29,11 @@ function dockerrm {
   $containers = docker ps -aq
   if(-not ([string]::IsNullOrEmpty($containers)))
   {
-    Write-Host "`n#>"-ForegroundColor Red -NoNewline; Write-Host "Docker containers:`n" 
+    Write-Host "`n#> "-ForegroundColor Red -NoNewline; Write-Host "Docker containers:`n" 
     docker ps -a --format "table {{.ID}}\t{{.Image}}\t{{.Names}}"
-    Write-Host "`n>>" -ForegroundColor Red -NoNewline; Write-Host "Docker rm started ...`n" 
+    Write-Host "`n>> " -ForegroundColor Red -NoNewline; Write-Host "Docker rm started ...`n" 
     docker rm $containers
-    Write-Host "`n<<" -ForegroundColor Red -NoNewline; Write-Host "Docker rm done.`n"
+    Write-Host "`n<< " -ForegroundColor Red -NoNewline; Write-Host "Docker rm done.`n"
   } Else {
     Write-Host "There is not any containers ..." -ForegroundColor DarkGreen
   }
@@ -47,11 +47,11 @@ function dockerrmi {
    $images = docker images -aq
   if(-not ([string]::IsNullOrEmpty($images)))
   {
-    Write-Host "`n#>"-ForegroundColor Red -NoNewline; Write-Host "Docker images:`n" 
+    Write-Host "`n#> "-ForegroundColor Red -NoNewline; Write-Host "Docker images:`n" 
     docker ps -a --format  "table {{.ID}}\t{{.Repository}}\t{{.Tag}}"
-    Write-Host "`n>>" -ForegroundColor Red -NoNewline; Write-Host "Docker rmi started ...`n" 
+    Write-Host "`n>> " -ForegroundColor Red -NoNewline; Write-Host "Docker rmi started ...`n" 
     docker rmi $images
-    Write-Host "`n<<" -ForegroundColor Red -NoNewline; Write-Host "Docker rmi done.`n" 
+    Write-Host "`n<< " -ForegroundColor Red -NoNewline; Write-Host "Docker rmi done.`n" 
   } Else {
     Write-Host "There is not any images ..." -ForegroundColor DarkGreen
   }
