@@ -2,6 +2,26 @@
 # Docker helper methods
 # Add this script to the end of Microsoft.PowerShell_profile file manually of use add-to-profile.ps1
 
+# "list all started containers."
+function dockerps {
+  [CmdletBinding()]
+  [Alias("docker-ps")]
+  PARAM ()
+    
+  docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}\t{{.ID}}"
+}
+
+
+# "list all containers."
+function dockerpsa {
+  [CmdletBinding()]
+  [Alias("docker-psa")]
+  PARAM ()
+    
+  docker ps -a --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}\t{{.ID}}"
+}
+
+
 # "Stop all containers."
 function dockerstop {
   [CmdletBinding()]
